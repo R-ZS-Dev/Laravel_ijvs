@@ -1,0 +1,38 @@
+.hrbgline{
+    background-color: rgb(112, 141, 55);
+}
+
+.editorcrd{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f8f8f8;
+  }
+.cheifcard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    flex-basis: 45%;
+    border-radius: 5px;
+    background-color: white;
+    margin: 20px;
+}
+.imgradius{
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1024px){
+    .cheifcard{
+      flex-basis: 60%;
+    }
+  }
+@media only screen and (max-width: 768px){
+    .cheifcard{
+      flex-basis: 43%;
+    }
+  }
+@media only screen and (max-width: 425px){
+    .cheifcard{
+      flex-basis: 85%;
+    }
+  }

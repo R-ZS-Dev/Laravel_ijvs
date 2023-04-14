@@ -1,0 +1,51 @@
+:root{
+    --text-white-color: #ffffff;
+    --text-black-color: #111111;
+    --bg-green-color: rgb(112, 141, 55);
+    --font-size-h1: 36px;
+    --font-size-h2: 30px;
+    --font-size-h3: 26px;
+    --font-size-xlarge: 20px;
+    --font-size-large: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+    --font-size-xsmall: 12px;
+}
+
+.btnn{
+    position: relative;
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    /* border: 2px solid rgb(112, 141, 55); */
+    border: 2px solid #0084D6;
+    padding: 2px 10px;
+    overflow: hidden;
+    transition: 1s all ease;
+    color: var(--text-black-color);
+  }
+  
+  .btnn::before{
+    /* background: rgb(112, 141, 55); */
+    background: #0084D6;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+  }
+  
+  .btn1::before{
+    width: 0%;
+    height: 100%;
+  }
+  
+  .btn1:hover::before{
+    width: 100%;
+  }
+
+  .btn1:hover{
+    color: var(--text-white-color);
+  }

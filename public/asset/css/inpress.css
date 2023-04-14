@@ -1,0 +1,80 @@
+.inpressarticle{
+    border: 1px solid rgb(218, 210, 210);
+}
+
+.checktyp{
+    display: none;
+    visibility: hidden;
+}
+.labclsd{
+    display: block;
+    transition: 0.2s;
+    color: white;
+    width: 120px;
+}
+.labclsd:before{
+    content: "+";
+    font-size: 25px;
+    vertical-align: text-top;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: -10px 5px;
+}
+#expand{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.1s;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#toggle:checked ~ #expand {
+    height: auto;
+}
+#toggle:checked ~ label:before{
+    content: "-";
+}
+
+/* Top Cited */
+
+input {
+    display: none;
+    background: blue; 
+  }
+  .colpsedown {
+    font-size: 22px;
+    /* background-color: rgb(238, 235, 235); */
+    display: block;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    padding-left: 30px;
+    line-height: 2.0;
+    /* background-color: #007bff !important; */
+    /* color: white; */
+    font-weight: bold;
+  }
+  .colpsedown:before {
+    content: "🠮";
+    border-width: 40px;
+    position: absolute;
+    left: 10px;
+    transition: transform 0.5s;
+  }
+  .accordian div {
+    font-size: 14px;  
+    height:0;
+    overflow:hidden;
+    opacity:0;
+    text-align: justify;
+    transition-duration: 0.5s;
+    margin-bottom: 5px;
+  }
+  input:checked ~ .colpsedown:before {
+    transform: rotate(90deg)
+  }
+  input:checked ~ div {
+    padding: 10px;
+    opacity: 1;
+    height: auto;
+  }

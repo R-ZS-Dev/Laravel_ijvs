@@ -1,0 +1,23 @@
+.hrbgline{
+    background-color: rgb(112, 141, 55);
+}
+
+.uspmaincard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+}
+.aimscard{
+    flex-basis: 46%;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 425px){
+    .aimscard {
+        flex-basis: 90%;
+    }
+  }

@@ -1,0 +1,106 @@
+:root{
+    --text-white-color: #ffffff;
+    --text-black-color: #111111;
+    --bg-green-color: rgb(112, 141, 55);
+    --font-size-h1: 36px;
+    --font-size-h2: 30px;
+    --font-size-h3: 26px;
+    --font-size-xlarge: 20px;
+    --font-size-large: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+    --font-size-xsmall: 12px;
+}
+
+.banner-width{
+  width: 100%;
+}
+
+.ijvsnavtitle {
+    text-decoration: none;
+    color: white;
+}
+  
+.nav {
+    width: 100%;
+    /* background-color: #8b5702; */
+    background-color: #0084D6;
+}
+  
+.nav > .nav-header {
+    display: inline;
+}
+  
+.nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+}
+  
+.nav > .nav-links {
+    font-size: 18px;
+}
+  
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 40px 13px 10px;
+    text-decoration: none;
+    color: white;
+}
+  
+.nav > .nav-links > a:hover {
+    /* background: rgb(112, 141, 55); */
+    transition: 0.4s;
+    color: #256085;
+}
+  
+.nav > #nav-check {
+    display: none;
+}
+
+.navbtncolor{
+    color: #e4f1f8;
+}
+
+@media (max-width:1024px) {
+    .nav > .nav-btn {
+      /* display: inline-block;
+      right: 0px;
+      display: relative; */
+      display: flex;
+      top: 80px;
+      float: right;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+      margin-bottom: -34px;
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid white;
+    }
+    .nav > .nav-links {
+      display: block;
+      width: 100%;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      overflow-y: auto;
+    }
+}

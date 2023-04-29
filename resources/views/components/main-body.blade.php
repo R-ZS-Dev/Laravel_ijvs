@@ -1,5 +1,6 @@
-    
-    <div class="m-3">
+  {{-- @props(['wlcm_lists'])
+  {{ dd(@$wlcm_lists) }} --}}
+  <div class="m-3">
         <div class="row row-cols-1 row-cols-md-3 g-2 text-center mt-3">
             <div class="col-md-3">
                 <div class="card h-100">
@@ -74,18 +75,23 @@
         <h1 class="text-center">Our Recent Articles</h1>
         <hr class="hrbgline"></hr>
         <div class="centerprc mt-3">
-            <div class="ourarticle p-2">
-                <a href="/upload/" target="_blank">
-                    <strong class="text-dark">zzzzzz</strong>
-                </a>
-                <div class="mt-0">
-                    Publish Date: <label class="text-dark">xxxxxxx</label>
+            {{-- {{ dd($wlcm_lists) }} --}}
+            @foreach($wlcm_lists as $lastfive)
+                <div class="ourarticle p-2">
+                    <a href="/upload/" target="_blank">
+                        <strong class="text-dark">{{ @$lastfive->article_title }}</strong>
+                    </a>
+                    <div class="mt-0">
+                        Publish Date: <label class="text-dark">xxxxxxx</label>
+                    </div>
+                    <label class="text-dark">xxxxxxxx</label>
+                    <span>
+                       {{ @$lastfive->archive_figure->fig_img ?? 'yasir.jpg' }}
+                    </span>
+                    <hr class="mt-1"></hr>
+                    <a class="doilinkind mt-0" href="/upload/" target="_blank">xxxxxxxx</a>
                 </div>
-                <label class="text-dark">xxxxxxxx</label>
-
-                <hr class="mt-1"></hr>
-                <a class="doilinkind mt-0" href="/upload/" target="_blank">xxxxxxxx</a>
-            </div>
+            @endforeach
         </div>
 
         <h2 class="text-center mt-2">Indexing</h2>

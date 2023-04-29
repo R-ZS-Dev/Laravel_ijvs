@@ -31,7 +31,7 @@
                                         <div class="col-lg-6 mx-auto">
                                             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                                                 <h6 class="font-weight-light">Sign in to continue.</h6>
-                                                <!-- <form class="pt-3" action='' method='POST'> -->
+                                                <form  class="pt-3" action="{{ route('online_submission_req') }}" method='POST'>
                                                 <div class="form-group">
                                                     <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Email" />
                                                 </div>
@@ -40,13 +40,13 @@
                                                 </div>
                                                 <div class="mt-3">
                                                     <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
-                                                        <a href="{{ route('article_sub_form_page') }}"> SIGN IN </a> 
+                                                        <a class="text-white" href="{{ route('article_sub_form_page') }}"> SIGN IN </a> 
                                                     </button>
                                                 </div>
                                                 <div class="text-center mt-4 font-weight-light">
                                                     Dont have an account? <a href="{{ route('userregistration_page') }}" class="text-primary">Create</a>
                                                 </div>
-                                                <!-- </form> -->
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

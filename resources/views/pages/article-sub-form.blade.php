@@ -8,63 +8,63 @@
 @endsection
 
 @section('content')
-    <div className="row p-4">
-                <div className="col-lg-12">
-                    <p className="text-center">{errorMsg}</p>
-                    <h3 className='text-center'>Article Submission Form</h3>
-                    <div className="row">                        
-                        <div className="col">
+    <div class="row p-4">
+                <div class="col-lg-12">
+                    <h3 class='text-center'>Article Submission Form</h3>
+                    <form action="{{ route('article_sub_form_req') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                    <div class="row">                        
+                        <div class="col">
                             <span><b>Article Title</b></span>
-                            <input type="text" name="article_title" className="form-control" placeholder="Enter Article Title..." />
+                            <input type="text" name="article_title" class="form-control" placeholder="Enter Article Title..." />
                         </div>
                     </div>
-                    <div className="row mt-1">
-                        <div className="col">
+                    <div class="row mt-1">
+                        <div class="col">
                             <span><b>Author Name</b></span>
-                            <input type="text" name="author_name" className="form-control" placeholder="Enter Author Name..." />
+                            <input type="text" name="author_name" class="form-control" placeholder="Enter Author Name..." />
                         </div>
                     </div>
-                    <div className="row mt-1">
-                        <div className="col">
+                    <div class="row mt-1">
+                        <div class="col">
                             <span><b>Corresponding Email</b></span>
-                            <input type="email" name="co_author_email" className="form-control" placeholder="Enter Article Authors..." />
+                            <input type="email" name="co_author_email" class="form-control" placeholder="Enter Article Authors..." />
                         </div>
                     </div>
-                    <div className="form-group mt-1">
+                    <div class="form-group mt-1">
                         <span ><b>Department/Affiliation</b></span>
-                        <textarea name="dept" className="form-control" rows="3"></textarea>
+                        <textarea name="dept" class="form-control" rows="3"></textarea>
                     </div>
-                    <div className="form-group mt-1">
+                    <div class="form-group mt-1">
                         <span><b>Abstract</b></span>
-                        <textarea className="form-control" name="abstract" rows="5"></textarea>
+                        <textarea class="form-control" name="abstract" rows="5"></textarea>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-12 mt-1">
+                    <div class="row">
+                        <div class="col-lg-12 mt-1">
                             <span><b>Keywords</b></span>
-                            <input type="text" name="keywords" className="form-control" placeholder="Enter Keywords" />
+                            <input type="text" name="keywords" class="form-control" placeholder="Enter Keywords" />
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className="form-group mt-1 col-4">
+                    <div class='row'>
+                        <div class="form-group mt-2 col-md-4">
                             <span><b>Upload MS Word File</b></span>
-                            <div className='text-small'>(including Text, Table, Figure)</div>
-                            <input type="file" name='ms_file' className="form-control-file" />
+                            <div class='text-small'>(including Text, Table, Figure)</div>
+                            <input type="file" name='ms_file1' class="form-control-file" />
                         </div>
-                        <div className="form-group mt-1 col-4">
+                        <div class="form-group mt-4 col-md-4">
                             <span><b>Upload Potential Reviewer</b></span>
-                            <input type="file" name='potential_reviewer' className="form-control-file" />
+                            <input type="file" name='potential_reviewer1' class="form-control-file" />
                         </div>
-                        <div className="form-group mt-1 col-4">
+                        <div class="form-group mt-4 col-md-4">
                             <span><b>Attached Performa-Doc</b></span>
-                            <input type="file" name='performa' className="form-control-file" />
+                            <input type="file" name='performa1' class="form-control-file" />
                         </div>
                     </div>
-                    <div>
-                        <button type="submit" className="btn btn-primary mr-2">
-                            <a href="{{ route('submitmsg_page') }}">Submit</a>
-                        </button>
-                        <button className="btn btn-light">Cancel</button>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                        <button class="btn btn-light m-2">Cancel</button>
                     </div>
+                    </form>
                 </div>
             </div>
 @endsection

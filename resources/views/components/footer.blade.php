@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <!-- Footer -->
     <div class="footbgclr">
         <div class="container">
@@ -43,19 +44,17 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 "><hr></hr>
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href='https://www.facebook.com/ijvets'><span><FaFacebook class="iconssizes" /></a></li>
-                        <li class="list-inline-item"><a href='https://twitter.com/ijvets'><span><FaTwitter class="iconssizes" /></a></li>
-                        <li class="list-inline-item"><a href='/'><span><FaInstagram class="iconssizes" /></a></li>
-                        <li class="list-inline-item"><a href='mailto: editor@ijvets.com'><span><FaRegEnvelope class="iconssizes" /></a></li>
+                        <li class="list-inline-item"><a href='https://www.facebook.com/ijvets'><span><img src="/asset/upload/uploadsite/fb.jpg" class="iconssizes" /></a></li>
+                        <li class="list-inline-item"><a href='https://twitter.com/ijvets'><span><img src="/asset/upload/uploadsite/tw.jpg" class="iconssizes" /></a></li>
+                        <li class="list-inline-item"><a href='mailto: editor@ijvets.com'><span><img src="/asset/upload/uploadsite/em.jpg" class="iconssizes" /></a></li>
                     </ul>
                 </div>
                 <hr></hr>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center text-white">
                     Copyright ©2022 All rights reserved | <a class="footbgclr ml-2" target="_blank" href='./'>ijvets.com</a>
                 </div>
-                <hr></hr>
             </div>
         </div>
     </div>

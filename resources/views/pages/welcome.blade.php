@@ -9,5 +9,6 @@
 
     @section('content')
             <x-slider></x-slider>
-            <x-main-body></x-main-body>
+            {{-- <x-main-body :wlcm_lists="$wlcm_lists"></x-main-body> --}}
+            @include('components.main-body')
     @endsection

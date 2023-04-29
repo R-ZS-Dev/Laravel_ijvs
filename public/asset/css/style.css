@@ -69,12 +69,20 @@
   }
 
 .footbgclr{
-    background-color: rgb(112, 141, 55);
+    /* background-color: rgb(112, 141, 55); */
+    background-color: #0084D6;
+
     color: rgb(245, 248, 34);
 }
 
 .text-justify{
     text-align: justify;
+}
+
+.iconssizes{
+  border-radius: 60%;
+  height: 30px;
+  width: 30px;
 }
 
 @media only screen and (max-width: 1048px){

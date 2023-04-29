@@ -1,13 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Archive;
+use App\Models\Yyear;
+use App\Models\Inpress;
+use App\Models\TopCitedArticle;
+use App\Models\ReceivedArticles;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function welcome_page(){
-        return view('pages.welcome');
+        $wlcm_records=Archive::with('archive_figure')->orderby('id','DESC')->take(6)->get();
+        // dd($wlcm_records);
+        return view('pages.welcome')->with([
+            'wlcm_lists' => $wlcm_records
+        ]);
     }
 
     public function editorial_board_page(){
@@ -30,32 +38,53 @@ class PagesController extends Controller
         return view('pages.usp');
     }
 
-    public function online_submission_page(){
+    public function submit_msg(){
+        return view('pages.submitmsg');
+    }
+
+    public function online_submission_page(Request $request){
+        // ReceivedArticles::create([
+        //     'table_name' => $request->table,
+            
+        // ]);
         return view('pages.online-submission');
     }
 
     public function in_press_page(){
-        return view('pages.in-press');
+        $inpress_records=Inpress::get();
+        return view('pages.in-press')->with([
+            'inpress_lists' => $inpress_records
+        ]);
     }
 
     public function top_cited_articles_page(){
-        return view('pages.top-cited-articles');
+        $top_cited_records=TopCitedArticle::get();
+        return view('pages.top-cited-articles')->with([
+            'topcited_lists' => $top_cited_records
+        ]);
     }
 
     public function archive_page(){
-        return view('pages.archive');
+        $archive=Yyear::with('volumes')->get();
+        // return response()->json(['sdf' => $archive]);
+        return view('pages.archive')->with([
+            'year_lists' => $archive
+        ]);
     }
 
-    public function archivevolumeview_page(){
-        return view('pages.archivevolumeview');
+    public function archivevolumeview_page($id){
+        $archive=Archive::with('volumes', 'years')->where('vvolume_id',$id)->get();
+        return view('pages.archivevolumeview')->with([
+            'archives' => $archive
+        ]);
     }
     
-    public function archiveabstract_page(){
-        return view('pages.archiveabstract');
+    public function archiveabstract_page(Archive $id){
+        return view('pages.archiveabstract')->with(['archive' => $id]);
     }
     
-    public function archivefulltext_page(){
-        return view('pages.archivefulltext');
+    public function archivefulltext_page(Archive $id){
+        return view('pages.archivefulltext')->with(['archive' => $id]);
     }
     
     public function archivefigure_page(){
@@ -66,13 +95,35 @@ class PagesController extends Controller
         return view('pages.userregistration');
     }
     
-    public function article_sub_form_page(){
+    public function article_sub_form_page(Request $request){
+        //  ReceivedArticles::create();
         return view('pages.article-sub-form');
     }
     
     public function submitmsg_page(){
         return view('pages.submitmsg');
     }
+
+    public function search_gate(Request $request){
+        $text=$request->search;
+        return redirect()->route('search_name', [$text]);
+    }
+
+    public function search_title($text){
+        $archive = Archive::where('article_title', 'LIKE', '%'. $text . '%')->get();
+        return view('pages.archivevolumeview')->with([
+            'archives' => $archive
+        ]);
+    }
+
+    public function welcomeindex_fun(){
+        $wlcm_records=Archive::get();
+        // DD($wlcm_records);
+        return view('pages.welcome')->with([
+            'wlcm_lists' => $wlcm_records
+        ]);
+    }
+
 }
 
 ?>

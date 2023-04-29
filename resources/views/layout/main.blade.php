@@ -27,5 +27,6 @@
         <footer>
             <x-footer></x-footer>
         </footer>
+        @yield('jss')
     </body>
 </html>

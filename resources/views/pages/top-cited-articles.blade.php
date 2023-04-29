@@ -8,34 +8,31 @@
 
 @section('content')
     <div class="p-3">
-        <h2 class="text-center mt-0">Top Cited Articles</h2>
+        <h2 class="text-center mt-0">Top Cited Articles </h2>
         <hr class="hrbgline"></hr>
+        @foreach($topcited_lists as $topcited_show)
         <div class='inpressarticle p-2 border border-1'>
-                <div>
+            <span class='topinpresshead'>{{ @$topcited_show->top_title }}</span>
+            <div class='inpresstxtsiz mt-0'> {{ @$topcited_show->top_co_authors_names }}
+                <div>{{ @$topcited_show->top_year_pages }}</div>
+            </div>
+                    
+            <div class="accordian">
+                <button class='btn btn-info m-1'><a class='text-white' href="{{ config('constants.base_url') }}/{{ @$topcited_show->top_pdf }}"
+                    target="_blank" download="">PDF</a></button>
+                    <span class='text-primary m-1'><b>Citations: {{ @$topcited_show->top_citations }}</b></span>
                     <span>
-                        <span class='topinpresshead'>Flow of Zoonotic Toxoplasmosis in Food Chain</span>
-                        <div class='inpresstxtsiz mt-0'>Abdulaziz M Almuzaini
-                            <div>Inter J Vet Sci, 2018, 5(3): 70-75</div>
+                        <input class="checktyp" id="toggle{{@$topcited_show->id}}" type="checkbox">
+                        <label class="labclsd btn btn-info" for="toggle{{@$topcited_show->id}}">Abstract</label>
+                        <div  class="bg-light expand">
+                            <p>{{ @$topcited_show->top_abstract }}</p>
+                            <div>
+                                <strong>Keywords: </strong> {{ @$topcited_show->top_keywords }}
+                            </div>
                         </div>
                     </span>
-                    
-                    <div class="accordian">
-                        <button class='btn btn-info m-1'><span class='text-white' href='/./upload/'
-                            target="_blank" download="">PDF</span></button>
-                        <span class='text-primary m-1'><b>Citations: 11</b></span>
-
-                        <input type="checkbox" id="trigger01" />
-                        <label class='colpsedown' For="trigger01"><button class="btn btn-info">Abstract</button> </label>
-                        
-                        <div class='ethictxtsize'>
-                            The International Journal of Veterinary Science (IJVS) is quarterly Journal (January-March; April-June; July-September;
-                            October-December) published by the data.
-                        </div>
-                        <div>
-                            <b>Keywords: </b>ABC, DEF, GHQ
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+        @endforeach
     </div>
 @endsection

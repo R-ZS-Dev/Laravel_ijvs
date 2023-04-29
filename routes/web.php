@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FormRequestController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +14,6 @@ use App\Http\Controllers\FormRequestController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'welcome_page')->name('welcome_page');
     Route::get('editor', 'editorial_board_page')->name('editorial_board_page');
@@ -45,6 +43,9 @@ Route::controller(FormRequestController::class)->group(function(){
     // Route::get('/', '')->name('search');
 });
 
-// Route::get('/', function () {
-//     return view('pages.welcome');
-// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

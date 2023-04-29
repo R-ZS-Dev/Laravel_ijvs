@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function welcome_page(){
         $wlcm_records=Archive::with('archive_figure')->orderby('id','DESC')->take(6)->get();
         // dd($wlcm_records);
-        return view('pages.welcome')->with([
+        return view('pages.index')->with([
             'wlcm_lists' => $wlcm_records
         ]);
     }
@@ -119,7 +119,7 @@ class PagesController extends Controller
     public function welcomeindex_fun(){
         $wlcm_records=Archive::get();
         // DD($wlcm_records);
-        return view('pages.welcome')->with([
+        return view('pages.index')->with([
             'wlcm_lists' => $wlcm_records
         ]);
     }

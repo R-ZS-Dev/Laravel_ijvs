@@ -31,7 +31,11 @@
                                         <div class="col-lg-6 mx-auto">
                                             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                                                 <h6 class="font-weight-light">Sign in to continue.</h6>
-                                                <form  class="pt-3" action="{{ route('online_submission_req') }}" method='POST'>
+                                                @if($errors->any())
+                                                <h4>{{$errors->first()}}</h4>
+                                                @endif
+                                                <form  class="pt-3" action="{{ route('online_submission_loginreq') }}" method='POST'>
+                                                    @csrf
                                                 <div class="form-group">
                                                     <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Email" />
                                                 </div>
@@ -39,8 +43,8 @@
                                                     <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" />
                                                 </div>
                                                 <div class="mt-3">
-                                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
-                                                        <a class="text-white" href="{{ route('article_sub_form_page') }}"> SIGN IN </a> 
+                                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
+                                                        SIGN IN 
                                                     </button>
                                                 </div>
                                                 <div class="text-center mt-4 font-weight-light">

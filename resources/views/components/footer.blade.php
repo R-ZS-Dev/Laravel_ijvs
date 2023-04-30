@@ -36,7 +36,7 @@
                 <div class="col-xs-12 col-sm-3 col-md-3 mt-5">
                     <h5>Visitors</h5>
                     <ul class="list-unstyled quick-links">
-                        <li class="text-light">{site_vistor ?? 0}</li>
+                        <li class="text-light">site_vistor {{ @$visitor }}</li>
                     </ul>
                 </div>
             </div>

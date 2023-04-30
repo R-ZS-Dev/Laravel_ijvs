@@ -1,18 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Archive;
 use App\Models\Yyear;
+use App\Models\Archive;
 use App\Models\Inpress;
+use App\Models\SiteVisitor;
+use Illuminate\Http\Request;
 use App\Models\TopCitedArticle;
 use App\Models\ReceivedArticles;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $user_vistor = SiteVisitor::where('id',1)->first()->visitor;
+        View::share('visitor', $user_vistor);
+    }
+
     public function welcome_page(){
+        $site_visitor=SiteVisitor::find(1);
+        $site_visitor->visitor=(SiteVisitor::first()->visitor)+1;
+        $site_visitor->save();
         $wlcm_records=Archive::with('archive_figure')->orderby('id','DESC')->take(6)->get();
-        // dd($wlcm_records);
         return view('pages.welcome')->with([
             'wlcm_lists' => $wlcm_records
         ]);
@@ -96,8 +107,13 @@ class PagesController extends Controller
     }
     
     public function article_sub_form_page(Request $request){
+        if (Session::get('author_user_id_sess')) {
+            return view('pages.article-sub-form');
+        }else{
+            return redirect()->route('welcome_page');
+        }
         //  ReceivedArticles::create();
-        return view('pages.article-sub-form');
+        
     }
     
     public function submitmsg_page(){

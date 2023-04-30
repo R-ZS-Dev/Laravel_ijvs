@@ -37,12 +37,16 @@ Route::controller(PagesController::class)->group(function () {
     Route::post('search', 'search_gate')->name('search_box');
     Route::get('search-page/{text}', 'search_title')->name('search_name');
     Route::get('submitmsg', 'submit_msg')->name('submitmsg_name');
+
+    Route::get('article-sub-form', 'send_eamil_fun')->name('sending_email');
 });
 
 Route::controller(FormRequestController::class)->group(function(){
     Route::post('article-sub-form', 'article_sub_form_req')->name('article_sub_form_req');
     Route::post('userregistration', 'userregistration_req')->name('userregistration_req');
-    // Route::get('/', '')->name('search');
+    Route::post('online-submission', 'online_submission_loginreq')->name('online_submission_loginreq');    
+    
+    Route::post('article-sub-form', 'send_eamil_fun')->name('sending_email');
 });
 
 // Route::get('/', function () {
